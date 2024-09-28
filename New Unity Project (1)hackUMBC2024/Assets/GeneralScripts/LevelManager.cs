@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class LevelManager : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager main;
 
+    public Action<int, bool> ButtonTrigger; 
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         main = this;
     }
