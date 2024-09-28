@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7807435913597491533}
   - component: {fileID: 1683541000249190596}
   - component: {fileID: 1476361083143332902}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,4 +207,6 @@ MonoBehaviour:
   maxGrowth: 0
   ReachedGoal: 0
   rooted: 0
+  plantName: NoPlant
+  isHeld: 0
   rb: {fileID: 7807435913597491533}
