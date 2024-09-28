@@ -98,13 +98,13 @@ public class playerMovement : MonoBehaviour
         //Sideways movement
         if (Input.GetKey(KeyCode.A))
         {
-            if(!anim.GetCurrentAnimatorStateInfo(0).IsName("walk"))
+            if(!anim.GetCurrentAnimatorStateInfo(0).IsName("walk") && !isFalling && !isJumping)
                 anim.Play("walk");
             if (rb.velocity.x > -maxSpeed) inputMovement += new Vector2(-acceleration, 0);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("walk"))
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("walk") && !isFalling && !isJumping)
                 anim.Play("walk");
             if (rb.velocity.x < maxSpeed) inputMovement += new Vector2(acceleration, 0);
         }
