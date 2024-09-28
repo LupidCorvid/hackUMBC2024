@@ -63,16 +63,17 @@ public class Plant : MonoBehaviour
     {
         Vector2 newLocation = GameObject.FindGameObjectWithTag("Player").transform.position;
         newLocation.y += 1;
+        rb.velocity = Vector2.zero;
         transform.position = newLocation;
     }
 
     public virtual void OnPickedUp()
     {
-
+        gameObject.layer = LayerMask.NameToLayer("PlayerLayer");
     }
 
     public virtual void OnLetGo()
     {
-
+        gameObject.layer = LayerMask.NameToLayer("PlantLayer");
     }
 }

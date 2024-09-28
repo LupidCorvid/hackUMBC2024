@@ -47,8 +47,9 @@ public class playerMovement : MonoBehaviour
         {
             if (currPlant != null)
             {
-                currPlant.isHeld = false;
-                currPlant = null;
+                //currPlant.isHeld = false;
+                //currPlant = null;
+                dropPlant();
             }
             else
             {
@@ -69,7 +70,7 @@ public class playerMovement : MonoBehaviour
             //Down/Fall
             if (Input.GetKeyUp(KeyCode.W) && !isFalling && isJumping)
             {
-                isFalling = true;
+                isJumping = false;
                 if (rb.velocity.y > 0)
                     inputMovement = new Vector2(0, -(rb.velocity.y / 4));
             }
@@ -97,16 +98,20 @@ public class playerMovement : MonoBehaviour
         //Sideways movement
         if (Input.GetKey(KeyCode.A))
         {
-            anim.Play("walk");
+            if(!anim.GetCurrentAnimatorStateInfo(0).IsName("walk"))
+                anim.Play("walk");
             if (rb.velocity.x > -maxSpeed) inputMovement += new Vector2(-acceleration, 0);
         }
         if (Input.GetKey(KeyCode.D))
         {
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("walk"))
+                anim.Play("walk");
             if (rb.velocity.x < maxSpeed) inputMovement += new Vector2(acceleration, 0);
         }
         if (inputMovement == Vector2.zero)
         {
-            anim.Play("idle");
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("idle"))
+                anim.Play("idle");
             rb.sharedMaterial = frictionNotMoving;
         }
         else
@@ -119,6 +124,14 @@ public class playerMovement : MonoBehaviour
     {
         target.isHeld = true;
         currPlant = target;
+        currPlant.OnPickedUp();
+    }
+
+    void dropPlant()
+    {
+        currPlant.OnLetGo();
+        currPlant.isHeld = false;
+        currPlant = null;
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)
