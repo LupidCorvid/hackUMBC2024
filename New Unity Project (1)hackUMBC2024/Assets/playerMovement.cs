@@ -40,7 +40,7 @@ public class playerMovement : MonoBehaviour
             sr.color = Color.red;
         }
         //Half the upward velocity when the player lets go of the jump key
-        if (Input.GetKeyUp(KeyCode.W) && !isFalling)
+        if (Input.GetKeyUp(KeyCode.W) && !isFalling && isJumping)
         {
             anim.Play("fall");
             isFalling = true;
