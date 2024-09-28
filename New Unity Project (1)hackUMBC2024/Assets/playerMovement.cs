@@ -5,8 +5,13 @@ using UnityEngine;
 public class playerMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    float speed = .25f;
-    float maxSpeed = 1;
+    [SerializeField] PhysicsMaterial2D frictionNotMoving;
+    [SerializeField] PhysicsMaterial2D frictionMoving;
+    float acceleration = .5f;
+    float jumpSpeed = 2;
+    float maxSpeed = 4;
+    bool isJumping = false;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -19,19 +24,39 @@ public class playerMovement : MonoBehaviour
 
     void inputChecker()
     {
+        Vector2 inputMovement = Vector2.zero;
         if (Input.GetKeyDown(KeyCode.W))
         {
-
+            if (!isJumping)
+            {
+                inputMovement += new Vector2(0, jumpSpeed);
+                isJumping = true;
+            }
+            
         }
         if (Input.GetKey(KeyCode.A))
         {
-            if (rb.velocity.x >= maxSpeed) rb.velocity = new Vector2(-maxSpeed, 0);
-            else rb.velocity += new Vector2(-speed, 0);
+            if (inputMovement.x <= -maxSpeed) inputMovement = new Vector2(-maxSpeed, 0);
+            else inputMovement += new Vector2(-acceleration, 0);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            if (rb.velocity.x >= maxSpeed) rb.velocity = new Vector2(maxSpeed, 0);
-            else rb.velocity += new Vector2(speed, 0);
+            if (inputMovement.x >= maxSpeed) inputMovement = new Vector2(maxSpeed, 0);
+            else inputMovement += new Vector2(acceleration, 0);
+        }
+        if (inputMovement == Vector2.zero)
+            rb.sharedMaterial = frictionNotMoving;
+        else
+            rb.sharedMaterial = frictionMoving;
+
+        rb.velocity += inputMovement;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isJumping = false;
         }
     }
 }

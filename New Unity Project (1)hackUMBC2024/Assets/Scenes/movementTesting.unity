@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 406764348}
   - component: {fileID: 406764347}
   - component: {fileID: 406764346}
-  - component: {fileID: 406764349}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -253,24 +252,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!252 &406764349
-SurfaceEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 406764345}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Speed: 1
-  m_SpeedVariation: 0
-  m_ForceScale: 0.1
-  m_UseContactForce: 0
-  m_UseFriction: 1
-  m_UseBounce: 1
 --- !u!1 &1130762450
 GameObject:
   m_ObjectHideFlags: 0
