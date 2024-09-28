@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 406764346}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,8 +246,8 @@ Transform:
   m_GameObject: {fileID: 406764345}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.03, y: -2.48, z: 0}
-  m_LocalScale: {x: 15.938522, y: 1.8299, z: 1}
+  m_LocalPosition: {x: -6.4796, y: -2.0262, z: 0}
+  m_LocalScale: {x: 24.081066, y: 0.92226964, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -357,12 +357,24 @@ PrefabInstance:
       value: TempPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 2318814075294582459, guid: ca7fa5739345a36448a224a7d8a543fb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.2228954
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318814075294582459, guid: ca7fa5739345a36448a224a7d8a543fb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.2228954
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318814075294582459, guid: ca7fa5739345a36448a224a7d8a543fb, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.2228954
+      objectReference: {fileID: 0}
+    - target: {fileID: 2318814075294582459, guid: ca7fa5739345a36448a224a7d8a543fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.0904
+      value: -11.5644
       objectReference: {fileID: 0}
     - target: {fileID: 2318814075294582459, guid: ca7fa5739345a36448a224a7d8a543fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.6104
+      value: -1.0844
       objectReference: {fileID: 0}
     - target: {fileID: 2318814075294582459, guid: ca7fa5739345a36448a224a7d8a543fb, type: 3}
       propertyPath: m_LocalPosition.z
