@@ -31,6 +31,8 @@ public class Plant : MonoBehaviour
             if (rb.velocity.magnitude <= .5f)
                 Root();
         }
+
+        if (isHeld) followPlayer();
     }
 
     public virtual void Grow()
@@ -59,7 +61,9 @@ public class Plant : MonoBehaviour
 
     public void followPlayer()
     {
-        //rb.transform = GameObject.FindGameObjectWithTag("Player").
+        Vector2 newLocation = GameObject.FindGameObjectWithTag("Player").transform.position;
+        newLocation.y += 1;
+        transform.position = newLocation;
     }
 
     public virtual void OnPickedUp()
