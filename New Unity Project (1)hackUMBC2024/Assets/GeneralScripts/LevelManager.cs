@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
 
     public void plantSettled()
     {
-        checkForWin();
+        //checkForWin();
     }
 
     public void checkForWin()

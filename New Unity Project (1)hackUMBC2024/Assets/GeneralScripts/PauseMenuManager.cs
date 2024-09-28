@@ -55,4 +55,10 @@ public class PauseMenuManager : MonoBehaviour
         group.blocksRaycasts = false;
         group.interactable = false;
     }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
+    }
 }
