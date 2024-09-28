@@ -40,7 +40,7 @@ public class Plant : MonoBehaviour
     {
         rooted = true;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
-
+        LevelManager.main.plantSettled();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

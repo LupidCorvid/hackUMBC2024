@@ -8,6 +8,7 @@ public class PlantGoalArea : MonoBehaviour
 
     public List<Plant> GatheredPlants = new List<Plant>();
 
+
     // Start is called before the first frame update
     void Start()
     {

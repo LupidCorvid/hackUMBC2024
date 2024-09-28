@@ -5,12 +5,14 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public List<Plant> plants = new List<Plant>();
-    int finishedPlants = 0;
+    bool finishedLevel;
+
+    public static LevelManager main;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        main = this;
     }
 
     // Update is called once per frame
@@ -24,5 +26,26 @@ public class LevelManager : MonoBehaviour
         
     }
 
+    public void plantSettled()
+    {
+        checkForWin();
+    }
+
+    public void checkForWin()
+    {
+        foreach(Plant plant in plants)
+        {
+            if (!plant.rooted)
+                return;
+        }
+
+        FinishLevel();
+    }
+
+    public void FinishLevel()
+    {
+        finishedLevel = true;
+        Debug.Log("Winner");
+    }
     
 }
