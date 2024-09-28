@@ -226,6 +226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformPlant Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7807435913597491533, guid: 839eb952d081c9d4cb3328ef4104696f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 750c0e30ef6cf4748ae9ffdda69abbef, type: 2}
     - target: {fileID: 8785491696149970942, guid: 839eb952d081c9d4cb3328ef4104696f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.71
