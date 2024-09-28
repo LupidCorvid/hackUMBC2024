@@ -47,8 +47,9 @@ public class playerMovement : MonoBehaviour
         {
             if (currPlant != null)
             {
-                currPlant.isHeld = false;
-                currPlant = null;
+                //currPlant.isHeld = false;
+                //currPlant = null;
+                dropPlant();
             }
             else
             {
@@ -119,6 +120,14 @@ public class playerMovement : MonoBehaviour
     {
         target.isHeld = true;
         currPlant = target;
+        currPlant.OnPickedUp();
+    }
+
+    void dropPlant()
+    {
+        currPlant.OnLetGo();
+        currPlant.isHeld = false;
+        currPlant = null;
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)

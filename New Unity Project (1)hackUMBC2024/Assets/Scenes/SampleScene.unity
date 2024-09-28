@@ -2458,6 +2458,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantGoalArea
       objectReference: {fileID: 0}
+    - target: {fileID: 6699776277404573340, guid: 6a31e0d3cda4f0d4580f18eb12ab1b16, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
