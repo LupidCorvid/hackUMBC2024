@@ -12,6 +12,8 @@ public class Plant : MonoBehaviour
 
     public bool ReachedGoal = false;
     public bool rooted = false;
+    public string plantName = "NoPlant"; //NoPlant, Helicopter, Boat, 
+    public bool isHeld = false;
 
     public Rigidbody2D rb;
 
