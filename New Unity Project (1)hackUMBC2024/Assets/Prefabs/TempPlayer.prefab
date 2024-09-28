@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5929374810502771669}
   - component: {fileID: 1908941309900697569}
   - component: {fileID: 5568445276867227134}
+  - component: {fileID: 4417634409596512418}
   m_Layer: 0
   m_Name: TempPlayer
   m_TagString: Player
@@ -173,3 +174,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frictionNotMoving: {fileID: 6200000, guid: 750c0e30ef6cf4748ae9ffdda69abbef, type: 2}
   frictionMoving: {fileID: 6200000, guid: 1c20729fb49941c4299a5176cd9291f9, type: 2}
+  acceleration: 2
+  jumpSpeed: 8
+  maxSpeed: 8
+  isJumping: 0
+  isFalling: 0
+--- !u!95 &4417634409596512418
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578625674151095580}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76d89a1b01d0710428e9ec20aa264446, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

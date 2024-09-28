@@ -54,4 +54,14 @@ public class Plant : MonoBehaviour
         if (collision.GetComponent<PlantGoalArea>() != null)
             ReachedGoal = false;
     }
+
+    public virtual void OnPickedUp()
+    {
+
+    }
+
+    public virtual void OnLetGo()
+    {
+
+    }
 }

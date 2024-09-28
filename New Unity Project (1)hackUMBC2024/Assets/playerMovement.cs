@@ -12,8 +12,8 @@ public class playerMovement : MonoBehaviour
     public float acceleration = 2;
     public float jumpSpeed = 8;
     public float maxSpeed = 8f;
-    bool isJumping = false;
-    bool isFalling = false;
+    public bool isJumping = false;
+    public bool isFalling = false;
 
     void Start()
     {
@@ -21,10 +21,15 @@ public class playerMovement : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
         anim = gameObject.GetComponent<Animator>();
     }
-    
-    void FixedUpdate()
+
+    public void Update()
     {
         inputChecker();
+    }
+
+    void FixedUpdate()
+    {
+        
     }
 
     void inputChecker()
@@ -44,7 +49,8 @@ public class playerMovement : MonoBehaviour
         {
             anim.Play("fall");
             isFalling = true;
-            inputMovement = new Vector2(0, (rb.velocity.y/2));
+            if(rb.velocity.y > 0)
+                inputMovement = new Vector2(0, -(rb.velocity.y/2));
             sr.color = Color.yellow;
         }
 
