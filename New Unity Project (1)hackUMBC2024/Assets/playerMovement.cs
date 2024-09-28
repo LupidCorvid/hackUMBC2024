@@ -16,6 +16,8 @@ public class playerMovement : MonoBehaviour
     public bool isJumping = false;
     public bool isFalling = false;
 
+    public PlantPickupDetector plantPickupRange;
+
     public Plant currPlant;
 
     void Start()
@@ -43,8 +45,16 @@ public class playerMovement : MonoBehaviour
         //Drop plant
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if(currPlant!= null) currPlant.isHeld = false;
-            currPlant = null;
+            if (currPlant != null)
+            {
+                currPlant.isHeld = false;
+                currPlant = null;
+            }
+            else
+            {
+                if (plantPickupRange.plantsInRange.Count > 0)
+                    pickUpPlant(plantPickupRange.plantsInRange[0]);
+            }
         }
 
         //Jumping/Helicopter
@@ -77,7 +87,8 @@ public class playerMovement : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.W) && !isFalling && isJumping)
             {
                 anim.Play("fall");
-                isFalling = true;
+                //isFalling = true;
+                isJumping = false;
                 if (rb.velocity.y > 0)
                     inputMovement = new Vector2(0, -(rb.velocity.y / 2));
             }
@@ -110,38 +121,53 @@ public class playerMovement : MonoBehaviour
         currPlant = target;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        //Reset jumping
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isJumping = false;
-            isFalling = false;
-        }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    //Reset jumping
+    //    if (collision.gameObject.CompareTag("Ground"))
+    //    {
+    //        isJumping = false;
+    //        isFalling = false;
+    //    }
 
-        //Pick up plant
-        if (collision.gameObject.CompareTag("Plant"))
-        {
-            if (Input.GetKeyDown(KeyCode.S)) pickUpPlant(collision.gameObject.GetComponent<Plant>());
-        }
-    }
-    private void OnCollisionStay2D(Collision2D collision)
+    //    //Pick up plant
+    //    if (collision.gameObject.CompareTag("Plant"))
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.S)) pickUpPlant(collision.gameObject.GetComponent<Plant>());
+    //    }
+    //}
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    //Pick up plant
+    //    if (collision.gameObject.CompareTag("Plant"))
+    //    {
+    //        if(currPlant == null)
+    //            if (Input.GetKeyDown(KeyCode.S)) pickUpPlant(collision.gameObject.GetComponent<Plant>());
+    //    }
+    //}
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Ground"))
+    //    {
+    //        isFalling = true;
+    //        isJumping = true;
+    //        anim.Play("fall");
+    //    }
+    //}
+
+    public void Land()
     {
-        //Pick up plant
-        if (collision.gameObject.CompareTag("Plant"))
-        {
-            if(currPlant == null)
-                if (Input.GetKeyDown(KeyCode.S)) pickUpPlant(collision.gameObject.GetComponent<Plant>());
-        }
+        Debug.Log("land");
+        isJumping = false;
+        isFalling = false;
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    public void Fall()
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isFalling = true;
-            isJumping = true;
-            anim.Play("fall");
-        }
+        Debug.Log("fall");
+        isFalling = true;
+        isJumping = true;
+        anim.Play("fall");
     }
 }
