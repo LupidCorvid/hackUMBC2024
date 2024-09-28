@@ -43,7 +43,7 @@ public class playerMovement : MonoBehaviour
         //Drop plant
         if (Input.GetKeyDown(KeyCode.S))
         {
-            currPlant.isHeld = false;
+            if(currPlant!= null) currPlant.isHeld = false;
             currPlant = null;
         }
 

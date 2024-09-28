@@ -57,6 +57,11 @@ public class Plant : MonoBehaviour
             ReachedGoal = false;
     }
 
+    public void followPlayer()
+    {
+        //rb.transform = GameObject.FindGameObjectWithTag("Player").
+    }
+
     public virtual void OnPickedUp()
     {
 
