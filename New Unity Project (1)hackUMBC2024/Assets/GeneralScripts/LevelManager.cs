@@ -46,6 +46,8 @@ public class LevelManager : MonoBehaviour
     {
         finishedLevel = true;
         Debug.Log("Winner");
+        WinScreenManager.main.OpenWinScreen();
+
     }
     
 }
