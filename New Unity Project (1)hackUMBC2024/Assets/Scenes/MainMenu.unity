@@ -264,6 +264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelSceneNames:
   - SampleScene
+  - level0
   LevelChangeButtonPrefab: {fileID: 4607988775380850695, guid: eae0530c913a9254a8c36855b5704c95, type: 3}
 --- !u!224 &600785592 stripped
 RectTransform:
