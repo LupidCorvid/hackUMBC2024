@@ -21,29 +21,17 @@ public class MainMenuManager : MonoBehaviour
 
     public void OpenLevelSelect()
     {
-        EnableCanvasGroup(LevelSelectMenu);
-        DisableCanvasGroup(MainMenu);
+        CanvasUtil.EnableCanvasGroup(LevelSelectMenu);
+        CanvasUtil.DisableCanvasGroup(MainMenu);
     }
 
     public void OpenMainMenu()
     {
-        EnableCanvasGroup(MainMenu);
-        DisableCanvasGroup(LevelSelectMenu);
+        CanvasUtil.EnableCanvasGroup(MainMenu);
+        CanvasUtil.DisableCanvasGroup(LevelSelectMenu);
     }
 
-    public void EnableCanvasGroup(CanvasGroup group)
-    {
-        group.alpha = 1;
-        group.blocksRaycasts = true;
-        group.interactable = true;
-    }
 
-    public void DisableCanvasGroup(CanvasGroup group)
-    {
-        group.alpha = 0;
-        group.blocksRaycasts = false;
-        group.interactable = false;
-    }
 
     public void QuitGame()
     {
@@ -55,3 +43,21 @@ public class MainMenuManager : MonoBehaviour
 #endif
     }
 }
+
+public class CanvasUtil
+{
+    public static void EnableCanvasGroup(CanvasGroup group)
+    {
+        group.alpha = 1;
+        group.blocksRaycasts = true;
+        group.interactable = true;
+    }
+
+    public static void DisableCanvasGroup(CanvasGroup group)
+    {
+        group.alpha = 0;
+        group.blocksRaycasts = false;
+        group.interactable = false;
+    }
+}
+

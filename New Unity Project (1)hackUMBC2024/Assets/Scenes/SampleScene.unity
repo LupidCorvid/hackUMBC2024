@@ -712,22 +712,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3531462312331098204, guid: 839eb952d081c9d4cb3328ef4104696f, type: 3}
-      propertyPath: m_Size.x
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531462312331098204, guid: 839eb952d081c9d4cb3328ef4104696f, type: 3}
-      propertyPath: m_Size.y
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 3531462312331098204, guid: 839eb952d081c9d4cb3328ef4104696f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3460bb88d121bb64ebeb04d64c662126, type: 3}
-    - target: {fileID: 3531462312331098204, guid: 839eb952d081c9d4cb3328ef4104696f, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5303390394321327084, guid: 839eb952d081c9d4cb3328ef4104696f, type: 3}
       propertyPath: m_Name
       value: Plant (1)
@@ -1967,6 +1951,7 @@ GameObject:
   - component: {fileID: 1980294394}
   - component: {fileID: 1980294393}
   - component: {fileID: 1980294395}
+  - component: {fileID: 1980294396}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -2236,6 +2221,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &1980294396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980294391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97cc27873ef1ad48b195c0ab16f2894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2380158817424062126
 PrefabInstance:
   m_ObjectHideFlags: 0
