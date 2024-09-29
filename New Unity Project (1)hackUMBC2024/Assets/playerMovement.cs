@@ -110,14 +110,14 @@ public class playerMovement : MonoBehaviour
         {
             if(!anim.GetCurrentAnimatorStateInfo(0).IsName("walk") && !isFalling && !isJumping)
                 anim.Play("walk");
-            if (rb.velocity.x > -maxSpeed) inputMovement += new Vector2(-acceleration, 0);
+            if (rb.velocity.x > -maxSpeed) inputMovement += new Vector2(-acceleration, 0) * Time.deltaTime;
             xMoveAttempt = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
             if (!anim.GetCurrentAnimatorStateInfo(0).IsName("walk") && !isFalling && !isJumping)
                 anim.Play("walk");
-            if (rb.velocity.x < maxSpeed) inputMovement += new Vector2(acceleration, 0);
+            if (rb.velocity.x < maxSpeed) inputMovement += new Vector2(acceleration, 0) * Time.deltaTime;
             xMoveAttempt = true;
         }
         if (inputMovement == Vector2.zero && !(isFalling || isJumping || xMoveAttempt))
