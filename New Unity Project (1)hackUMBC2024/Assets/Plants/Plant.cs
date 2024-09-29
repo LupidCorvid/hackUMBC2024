@@ -34,10 +34,14 @@ public class Plant : MonoBehaviour
         //        Root();
         //}
 
-        if (isHeld) followPlayer();
+        if (isHeld)
+        {
+            followPlayer();
+            startSettlingTime = Time.time;
+        }
         else
         {
-            if (rb.velocity == Vector2.zero && !grown && !isHeld)
+            if (rb.velocity == Vector2.zero && !grown && !isHeld && ReachedGoal)
             {
                 if (settleTime + startSettlingTime < Time.time)
                     Grow();
