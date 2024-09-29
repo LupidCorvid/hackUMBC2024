@@ -10,7 +10,7 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MusicPlayer.main.ChangeAudio(music);
+        MusicPlayer.main?.ChangeAudio(music);
     }
 
     // Update is called once per frame
