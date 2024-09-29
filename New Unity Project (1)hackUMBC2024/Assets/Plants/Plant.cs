@@ -16,8 +16,10 @@ public class Plant : MonoBehaviour
 
     public Rigidbody2D rb;
 
-    public float startSettlingTime = 0;
+    public float settleProgress = 0;
     public float settleTime = 1f;
+
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -37,17 +39,28 @@ public class Plant : MonoBehaviour
         if (isHeld)
         {
             followPlayer();
-            startSettlingTime = Time.time;
+            //startSettlingTime = Time.time;
         }
         else
         {
             if (rb.velocity == Vector2.zero && !grown && !isHeld && ReachedGoal)
             {
-                if (settleTime + startSettlingTime < Time.time)
+                if (anim != null)
+                    anim.SetFloat("Speed", 1/settleTime);
+
+                //if (settleTime + startSettlingTime < Time.time)
+                //    Grow();
+                settleProgress += Time.deltaTime;
+                if (settleProgress > settleTime)
                     Grow();
             }
             else
-                startSettlingTime = Time.time;
+            {
+                //startSettlingTime = Time.time;
+                if (anim != null)
+                    anim.SetFloat("Speed", 0);
+
+            }
         }
     }
 

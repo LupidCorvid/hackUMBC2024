@@ -132,7 +132,7 @@ MonoBehaviour:
   frictionNotMoving: {fileID: 6200000, guid: 750c0e30ef6cf4748ae9ffdda69abbef, type: 2}
   frictionMoving: {fileID: 6200000, guid: 1c20729fb49941c4299a5176cd9291f9, type: 2}
   acceleration: 20
-  jumpSpeed: 9
+  jumpSpeed: 10
   helicopterSpeed: 16
   maxSpeed: 8
   isJumping: 0
