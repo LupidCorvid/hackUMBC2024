@@ -9,6 +9,11 @@ public class Door : MonoBehaviour
     Animator anim;
     public bool wasOpen = false;
 
+    public AudioClip DoorOpen;
+    public AudioClip DoorClose;
+
+    public AudioSource audioPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +40,10 @@ public class Door : MonoBehaviour
                 wasOpen = true;
                 cldr.enabled = false;
                 anim.Play("doorOpen");
+                audioPlayer.Stop();
+                audioPlayer.clip = DoorOpen;
+                audioPlayer.Play();
+
             }
             else
             {
@@ -43,6 +52,9 @@ public class Door : MonoBehaviour
                 {
                     anim.Play("doorClose");
                     wasOpen = false;
+                    audioPlayer.Stop();
+                    audioPlayer.clip = DoorClose;
+                    audioPlayer.Play();
                 }
             }
                 
