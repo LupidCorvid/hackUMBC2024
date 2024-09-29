@@ -70,6 +70,9 @@ public class playerMovement : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.E))
+            Throw();
+
         //Jumping/Helicopter
         if (currPlant?.plantName == "Helicopter")
         {
@@ -157,6 +160,20 @@ public class playerMovement : MonoBehaviour
         }
 
         rb.velocity += inputMovement;
+    }
+
+    public void Throw()
+    {
+        if(currPlant != null)
+        {
+            Rigidbody2D tempBody = currPlant.rb;
+            dropPlant();
+            //tempBody.velocity 
+            if (sprite.flipX)
+                tempBody.velocity += new Vector2(-5, 5);
+            else
+                tempBody.velocity += new Vector2(5, 5);
+        }
     }
 
     void pickUpPlant(Plant target)
