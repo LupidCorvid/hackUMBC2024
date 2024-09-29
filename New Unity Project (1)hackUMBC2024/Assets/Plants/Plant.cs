@@ -6,8 +6,7 @@ using System;
 public class Plant : MonoBehaviour
 {
 
-    public int growth;
-    public int maxGrowth;
+    public bool grown = false;
 
 
     public bool ReachedGoal = false;
@@ -16,6 +15,9 @@ public class Plant : MonoBehaviour
     public bool isHeld = false;
 
     public Rigidbody2D rb;
+
+    public float startSettlingTime = 0;
+    public float settleTime = 1f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,20 +28,32 @@ public class Plant : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ReachedGoal && !rooted)
-        {
-            if (rb.velocity.magnitude <= .5f)
-                Root();
-        }
+        //if(ReachedGoal && !rooted)
+        //{
+        //    if (rb.velocity.magnitude <= .5f)
+        //        Root();
+        //}
 
         if (isHeld) followPlayer();
+        else
+        {
+            if (rb.velocity == Vector2.zero && !grown && !isHeld)
+            {
+                if (settleTime + startSettlingTime < Time.time)
+                    Grow();
+            }
+            else
+                startSettlingTime = Time.time;
+        }
     }
 
     public virtual void Grow()
     {
-
+        Debug.Log("Grow");
+        grown = true;
     }
 
+    //Unused
     public virtual void Root()
     {
         rooted = true;
@@ -70,6 +84,7 @@ public class Plant : MonoBehaviour
     public virtual void OnPickedUp()
     {
         gameObject.layer = LayerMask.NameToLayer("PlayerLayer");
+        //grown = false;
     }
 
     public virtual void OnLetGo()

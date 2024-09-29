@@ -129,9 +129,11 @@ public class playerMovement : MonoBehaviour
 
     void dropPlant()
     {
+        currPlant.rb.velocity = rb.velocity;
         currPlant.OnLetGo();
         currPlant.isHeld = false;
         currPlant = null;
+        
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)

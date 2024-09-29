@@ -4,22 +4,13 @@ using UnityEngine;
 
 public class PlatformPlant : Plant
 {
-    
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject GrownPlant;
+    public GameObject RegPlant;
 
     public override void Grow()
     {
         base.Grow();
+        GrownPlant.SetActive(true);
+        RegPlant.SetActive(false);
     }
 }
