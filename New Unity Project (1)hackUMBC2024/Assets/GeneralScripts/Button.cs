@@ -20,11 +20,13 @@ public class Button : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        LevelManager.main.ButtonTrigger?.Invoke(eventID, true);
+        if(collision.GetComponent<playerMovement>() != null || collision.GetComponent<Plant>() != null)
+            LevelManager.main.ButtonTrigger?.Invoke(eventID, true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        LevelManager.main.ButtonTrigger?.Invoke(eventID, false);
+        if(collision.GetComponent<playerMovement>() != null || collision.GetComponent<Plant>() != null)
+            LevelManager.main.ButtonTrigger?.Invoke(eventID, false);
     }
 }
