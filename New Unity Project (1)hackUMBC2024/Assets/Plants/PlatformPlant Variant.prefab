@@ -298,5 +298,14 @@ MonoBehaviour:
   settleProgress: 0
   settleTime: 1
   anim: {fileID: 762303373290915192}
+  pickUpSound: {fileID: 5829574682869655868}
+  pickUpSoundFX: {fileID: 8300000, guid: 8319554cc6d013547a4ae78e115a1e32, type: 3}
+  throwSound: {fileID: 8300000, guid: 45e90a023b8b45546beaeb39585e61fc, type: 3}
+  landSound: {fileID: 8300000, guid: e38c7fa5b4146a544b933dbc2d4858e8, type: 3}
   GrownPlant: {fileID: 8320349447231874618}
   cldr: {fileID: 6976236615089447779}
+--- !u!82 &5829574682869655868 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3500098987111400775, guid: 839eb952d081c9d4cb3328ef4104696f, type: 3}
+  m_PrefabInstance: {fileID: 6950204544537373819}
+  m_PrefabAsset: {fileID: 0}

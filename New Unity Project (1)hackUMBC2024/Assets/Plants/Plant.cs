@@ -21,10 +21,15 @@ public class Plant : MonoBehaviour
 
     public Animator anim;
 
+    public AudioSource pickUpSound;
+    public AudioClip pickUpSoundFX;
+    public AudioClip throwSound;
+    public AudioClip landSound;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        pickUpSound.clip = pickUpSoundFX;
     }
 
     // Update is called once per frame
@@ -103,11 +108,20 @@ public class Plant : MonoBehaviour
         gameObject.layer = LayerMask.NameToLayer("PlayerLayer");
         if (anim != null)
             anim.SetFloat("Speed", 0);
+        pickUpSound.Play();
         //grown = false;
     }
 
     public virtual void OnLetGo()
     {
         gameObject.layer = LayerMask.NameToLayer("PlantLayer");
+        pickUpSound.clip = throwSound;
+        pickUpSound.Play();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        pickUpSound.clip = landSound;
+        pickUpSound.Play();
     }
 }
