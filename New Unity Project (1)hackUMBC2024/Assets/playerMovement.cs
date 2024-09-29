@@ -84,11 +84,20 @@ public class playerMovement : MonoBehaviour
                 inputMovement += new Vector2(0, jumpSpeed);
                 isJumping = true;
             }
+            //if(rb.velocity.y < 0)
+            //{
+            //    anim.Play("fall");
+            //    isJumping = false;
+            //}
+            //if (rb.velocity.y > 0)
+            //{
+            //    anim.Play("jumpUp");
+            //    isJumping = false;
+            //}
             //Half the upward velocity when the player lets go of the jump key
             if (Input.GetKeyUp(KeyCode.W) && !isFalling && isJumping)
             {
                 anim.Play("fall");
-                //isFalling = true;
                 isJumping = false;
                 if (rb.velocity.y > 0)
                     inputMovement = new Vector2(0, -(rb.velocity.y / 2));
