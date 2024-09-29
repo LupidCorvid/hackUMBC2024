@@ -101,6 +101,8 @@ public class Plant : MonoBehaviour
     public virtual void OnPickedUp()
     {
         gameObject.layer = LayerMask.NameToLayer("PlayerLayer");
+        if (anim != null)
+            anim.SetFloat("Speed", 0);
         //grown = false;
     }
 
