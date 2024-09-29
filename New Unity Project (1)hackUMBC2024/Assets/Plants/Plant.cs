@@ -95,7 +95,7 @@ public class Plant : MonoBehaviour
             ReachedGoal = false;
     }
 
-    public void followPlayer()
+    public virtual void followPlayer()
     {
         Vector2 newLocation = GameObject.FindGameObjectWithTag("Player").transform.position;
         newLocation.y += 1;

@@ -102,16 +102,6 @@ public class playerMovement : MonoBehaviour
                 inputMovement += new Vector2(0, jumpSpeed);
                 isJumping = true;
             }
-            //if(rb.velocity.y < 0)
-            //{
-            //    anim.Play("fall");
-            //    isJumping = false;
-            //}
-            //if (rb.velocity.y > 0)
-            //{
-            //    anim.Play("jumpUp");
-            //    isJumping = false;
-            //}
             //Half the upward velocity when the player lets go of the jump key
             if (Input.GetKeyUp(KeyCode.W) && !isFalling && isJumping)
             {
@@ -208,12 +198,13 @@ public class playerMovement : MonoBehaviour
     //        if (Input.GetKeyDown(KeyCode.S)) pickUpPlant(collision.gameObject.GetComponent<Plant>());
     //    }
     //}
+
+    //Handle boat plant
     //private void OnCollisionStay2D(Collision2D collision)
     //{
-    //    //Pick up plant
     //    if (collision.gameObject.CompareTag("Plant"))
     //    {
-    //        if(currPlant == null)
+    //        if (currPlant == null)
     //            if (Input.GetKeyDown(KeyCode.S)) pickUpPlant(collision.gameObject.GetComponent<Plant>());
     //    }
     //}
