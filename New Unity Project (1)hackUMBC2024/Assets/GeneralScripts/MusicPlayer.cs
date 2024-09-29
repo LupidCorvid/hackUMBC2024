@@ -32,6 +32,7 @@ public class MusicPlayer : MonoBehaviour
     {
         if (newSource != currMusic)
         {
+            player.Stop();
             player.clip = newSource;
             currMusic = newSource;
             player.Play();

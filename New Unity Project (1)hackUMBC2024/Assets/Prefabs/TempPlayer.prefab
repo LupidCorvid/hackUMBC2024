@@ -145,6 +145,7 @@ MonoBehaviour:
   JumpSound: {fileID: 8300000, guid: 87b46ee3745e39745b8b027e8722f50c, type: 3}
   LandSound: {fileID: 8300000, guid: 82d833c5560bbed44a70d51ad6b04a27, type: 3}
   MoveSound: {fileID: 8300000, guid: fa5091612d2ff5d43903282fd8b6a850, type: 3}
+  DeathSound: {fileID: 8300000, guid: 14da989ebaf35884aa4bae149245ea01, type: 3}
   jumpAudio: {fileID: 7862670969239003076}
   landAudio: {fileID: 2821673178889628773}
   moveAudio: {fileID: 4308390802956399910}
