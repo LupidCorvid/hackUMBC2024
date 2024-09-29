@@ -15,4 +15,12 @@ public class BoatPlant : Plant
         rb.velocity = Vector2.zero;
         transform.position = newLocation;
     }
+
+    public override void OnLetGo()
+    {
+        
+        if (grown)
+            transform.position += Vector3.up * 1f;
+        base.OnLetGo();
+    }
 }
