@@ -148,10 +148,13 @@ public class playerMovement : MonoBehaviour
                 moveAudio.Play();
         }
 
-        if (inputMovement.x < 0)
-            sprite.flipX = true;
-        else
-            sprite.flipX = false;
+        if (inputMovement.x != 0)
+        {
+            if (inputMovement.x < 0)
+                sprite.flipX = true;
+            else
+                sprite.flipX = false;
+        }
 
         rb.velocity += inputMovement;
     }
