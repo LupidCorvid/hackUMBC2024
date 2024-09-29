@@ -20,7 +20,7 @@ public class BoatPlant : Plant
     {
         
         if (grown)
-            transform.position += Vector3.up * 1f;
+            transform.position += Vector3.up * 1.5f;
         base.OnLetGo();
     }
 }
