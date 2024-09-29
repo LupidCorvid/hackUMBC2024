@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlatformPlant : Plant
 {
     public GameObject GrownPlant;
-    public GameObject RegPlant;
+    public Collider2D cldr;
 
     public override void Grow()
     {
         base.Grow();
-        GrownPlant.SetActive(true);
-        RegPlant.SetActive(false);
+        cldr.enabled = true;
+        Debug.Log("grown");
     }
 }
