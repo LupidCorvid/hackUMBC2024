@@ -94,21 +94,24 @@ public class playerMovement : MonoBehaviour
                     inputMovement = new Vector2(0, -(rb.velocity.y / 2));
             }
         }
-        
+
+        bool xMoveAttempt = false;
         //Sideways movement
         if (Input.GetKey(KeyCode.A))
         {
             if(!anim.GetCurrentAnimatorStateInfo(0).IsName("walk") && !isFalling && !isJumping)
                 anim.Play("walk");
             if (rb.velocity.x > -maxSpeed) inputMovement += new Vector2(-acceleration, 0);
+            xMoveAttempt = true;
         }
         if (Input.GetKey(KeyCode.D))
         {
             if (!anim.GetCurrentAnimatorStateInfo(0).IsName("walk") && !isFalling && !isJumping)
                 anim.Play("walk");
             if (rb.velocity.x < maxSpeed) inputMovement += new Vector2(acceleration, 0);
+            xMoveAttempt = true;
         }
-        if (inputMovement == Vector2.zero)
+        if (inputMovement == Vector2.zero && !(isFalling || isJumping || xMoveAttempt))
         {
             if (!anim.GetCurrentAnimatorStateInfo(0).IsName("idle"))
                 anim.Play("idle");
