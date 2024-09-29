@@ -20,12 +20,24 @@ public class playerMovement : MonoBehaviour
 
     public Plant currPlant;
 
+    public AudioClip JumpSound;
+    public AudioClip LandSound;
+    public AudioClip MoveSound;
+
+    public AudioSource jumpAudio;
+    public AudioSource landAudio;
+    public AudioSource moveAudio;
+
+    public SpriteRenderer sprite;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         sr = gameObject.GetComponent<SpriteRenderer>();
         anim = gameObject.GetComponent<Animator>();
         currPlant = null;
+        moveAudio.clip = MoveSound;
+        moveAudio.loop = true;
     }
 
     public void Update()
@@ -81,6 +93,8 @@ public class playerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W) && !isJumping)
             {
                 anim.Play("jumpUp");
+                jumpAudio.clip = JumpSound;
+                jumpAudio.Play();
                 inputMovement += new Vector2(0, jumpSpeed);
                 isJumping = true;
             }
@@ -125,9 +139,22 @@ public class playerMovement : MonoBehaviour
             if (!anim.GetCurrentAnimatorStateInfo(0).IsName("idle"))
                 anim.Play("idle");
             rb.sharedMaterial = frictionNotMoving;
+            moveAudio.Pause();
         }
         else
+        {
             rb.sharedMaterial = frictionMoving;
+            if(!moveAudio.isPlaying)
+                moveAudio.Play();
+        }
+
+        if (inputMovement.x != 0)
+        {
+            if (inputMovement.x < 0)
+                sprite.flipX = true;
+            else
+                sprite.flipX = false;
+        }
 
         rb.velocity += inputMovement;
     }
@@ -185,14 +212,16 @@ public class playerMovement : MonoBehaviour
 
     public void Land()
     {
-        Debug.Log("land");
+        
         isJumping = false;
         isFalling = false;
+        landAudio.clip = LandSound;
+        landAudio.Play();
     }
 
     public void Fall()
     {
-        Debug.Log("fall");
+        
         isFalling = true;
         isJumping = true;
         anim.Play("fall");
