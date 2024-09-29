@@ -28,6 +28,8 @@ public class playerMovement : MonoBehaviour
     public AudioSource landAudio;
     public AudioSource moveAudio;
 
+    public SpriteRenderer sprite;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -145,6 +147,11 @@ public class playerMovement : MonoBehaviour
             if(!moveAudio.isPlaying)
                 moveAudio.Play();
         }
+
+        if (inputMovement.x < 0)
+            sprite.flipX = true;
+        else
+            sprite.flipX = false;
 
         rb.velocity += inputMovement;
     }
