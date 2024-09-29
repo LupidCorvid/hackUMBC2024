@@ -21,6 +21,7 @@ public class Water : MonoBehaviour
         if(collision.gameObject.GetComponent<playerMovement>() != null)
         {
             GameCanvasManager.main.OpenLoseScreen();
+            collision.gameObject.GetComponent<playerMovement>().Die();
         }
     }
 }

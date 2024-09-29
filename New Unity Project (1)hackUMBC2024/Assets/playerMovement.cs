@@ -23,6 +23,7 @@ public class playerMovement : MonoBehaviour
     public AudioClip JumpSound;
     public AudioClip LandSound;
     public AudioClip MoveSound;
+    public AudioClip DeathSound;
 
     public AudioSource jumpAudio;
     public AudioSource landAudio;
@@ -242,5 +243,12 @@ public class playerMovement : MonoBehaviour
         isFalling = true;
         isJumping = true;
         anim.Play("fall");
+    }
+
+    public void Die()
+    {
+        anim.Play("Death");
+        jumpAudio.clip = DeathSound;
+        jumpAudio.Play();
     }
 }
