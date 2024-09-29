@@ -75,7 +75,7 @@ public class playerMovement : MonoBehaviour
             Throw();
 
         //Jumping/Helicopter
-        if (currPlant?.plantName == "Helicopter")
+        if (currPlant?.plantName == "Helicopter" && currPlant.grown)
         {
             //Up
             if (Input.GetKeyDown(KeyCode.W) && !isJumping)
