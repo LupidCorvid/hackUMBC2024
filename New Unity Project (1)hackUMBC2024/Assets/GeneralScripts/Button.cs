@@ -5,6 +5,7 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     public int eventID;
+    int pressing = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,13 +21,21 @@ public class Button : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<playerMovement>() != null || collision.GetComponent<Plant>() != null)
-            LevelManager.main.ButtonTrigger?.Invoke(eventID, true);
+        if (collision.GetComponent<playerMovement>() != null || collision.GetComponent<Plant>() != null)
+        {
+            if(pressing == 0)
+                LevelManager.main.ButtonTrigger?.Invoke(eventID, true);
+            pressing++;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.GetComponent<playerMovement>() != null || collision.GetComponent<Plant>() != null)
-            LevelManager.main.ButtonTrigger?.Invoke(eventID, false);
+        if (collision.GetComponent<playerMovement>() != null || collision.GetComponent<Plant>() != null)
+        {
+            pressing--;
+            if (pressing == 0)
+                LevelManager.main.ButtonTrigger?.Invoke(eventID, false);
+        }
     }
 }
