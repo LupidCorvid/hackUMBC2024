@@ -10,7 +10,7 @@ public class MusicPlayer : MonoBehaviour
     public static MusicPlayer main;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         DontDestroyOnLoad(gameObject);
         if (main != null)
