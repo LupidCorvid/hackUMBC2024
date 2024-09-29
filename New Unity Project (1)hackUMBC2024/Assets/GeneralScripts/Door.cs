@@ -7,6 +7,7 @@ public class Door : MonoBehaviour
     public int id;
     public Collider2D cldr;
     Animator anim;
+    public bool wasOpen = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,11 +32,20 @@ public class Door : MonoBehaviour
         {
             if (state)
             {
+                wasOpen = true;
                 cldr.enabled = false;
                 anim.Play("doorOpen");
             }
             else
+            {
                 cldr.enabled = true;
+                if (wasOpen)
+                {
+                    anim.Play("doorClose");
+                    wasOpen = false;
+                }
+            }
+                
         }
     }
 }
