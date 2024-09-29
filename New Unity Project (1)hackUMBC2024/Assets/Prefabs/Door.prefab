@@ -97,7 +97,7 @@ MonoBehaviour:
   id: 0
   cldr: {fileID: 6995625697344884349}
   wasOpen: 0
-  DoorOpen: {fileID: 0}
+  DoorOpen: {fileID: 8300000, guid: 717f6f99955dcec4d9709afce4027def, type: 3}
   DoorClose: {fileID: 0}
   audioPlayer: {fileID: 4272618808425799119}
 --- !u!212 &7017655753622812429
@@ -199,7 +199,7 @@ MonoBehaviour:
   - {x: 0.2849326, y: -0.8773999, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 71912
+  m_InstanceId: 75492
   m_LocalBounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0.2849326, y: 0.8773999, z: 0}
