@@ -27,4 +27,16 @@ public class Water : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<playerMovement>() != null)
+        {
+            if (collision.gameObject.GetComponent<playerMovement>().currPlant?.plantName != "Boat")
+            {
+                GameCanvasManager.main.OpenLoseScreen();
+                collision.gameObject.GetComponent<playerMovement>().Die();
+            }
+        }
+    }
 }
