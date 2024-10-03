@@ -19,6 +19,7 @@ public class MusicPlayer : MonoBehaviour
             return;
         }
         main = this;
+        player.loop = true;
 
     }
 
